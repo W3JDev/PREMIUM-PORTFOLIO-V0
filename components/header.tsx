@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { useIsMobile } from "@/components/ui/use-mobile"
 
 const navLinks = [
   { name: "Home", href: "#hero" },
@@ -19,6 +20,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
   const [scrolled, setScrolled] = useState(false)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,81 +89,87 @@ export default function Header() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-10">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={cn(
-                "relative py-2 text-foreground transition-colors duration-300 hover:text-primary",
-                activeSection === link.href.substring(1) && "text-primary",
-              )}
-              data-cursor="hover"
-            >
-              <span>{link.name}</span>
-              <span
+        {!isMobile && (
+          <nav className="hidden md:flex space-x-10">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
                 className={cn(
-                  "absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 origin-right",
-                  activeSection === link.href.substring(1) && "scale-x-100 origin-left",
+                  "relative py-2 text-foreground transition-colors duration-300 hover:text-primary",
+                  activeSection === link.href.substring(1) && "text-primary",
                 )}
-              />
-            </a>
-          ))}
-        </nav>
+                data-cursor="hover"
+              >
+                <span>{link.name}</span>
+                <span
+                  className={cn(
+                    "absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 origin-right",
+                    activeSection === link.href.substring(1) && "scale-x-100 origin-left",
+                  )}
+                />
+              </a>
+            ))}
+          </nav>
+        )}
 
         {/* Mobile Menu Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden text-white"
-          onClick={() => setIsOpen(true)}
-          data-cursor="hover"
-        >
-          <Menu className="h-6 w-6" />
-        </Button>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={cn(
-          "fixed inset-0 bg-background/95 backdrop-blur-xl z-50 p-8 md:hidden transition-transform duration-300",
-          isOpen ? "translate-x-0" : "translate-x-full",
-        )}
-      >
-        <div className="flex justify-end mb-8">
+        {isMobile && (
           <Button
             variant="ghost"
             size="icon"
-            className="text-white"
-            onClick={() => setIsOpen(false)}
+            className="md:hidden text-white"
+            onClick={() => setIsOpen(true)}
             data-cursor="hover"
           >
-            <X className="h-6 w-6" />
+            <Menu className="h-6 w-6" />
           </Button>
-        </div>
-        <nav className="flex flex-col items-center space-y-8 text-center">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={cn(
-                "text-2xl relative py-2 text-foreground transition-colors duration-300 hover:text-primary",
-                activeSection === link.href.substring(1) && "text-primary",
-              )}
+        )}
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobile && (
+        <div
+          className={cn(
+            "fixed inset-0 bg-background/95 backdrop-blur-xl z-50 p-8 md:hidden transition-transform duration-300",
+            isOpen ? "translate-x-0" : "translate-x-full",
+          )}
+        >
+          <div className="flex justify-end mb-8">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white"
               onClick={() => setIsOpen(false)}
               data-cursor="hover"
             >
-              <span>{link.name}</span>
-              <span
+              <X className="h-6 w-6" />
+            </Button>
+          </div>
+          <nav className="flex flex-col items-center space-y-8 text-center">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
                 className={cn(
-                  "absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 origin-right",
-                  activeSection === link.href.substring(1) && "scale-x-100 origin-left",
+                  "text-2xl relative py-2 text-foreground transition-colors duration-300 hover:text-primary",
+                  activeSection === link.href.substring(1) && "text-primary",
                 )}
-              />
-            </a>
-          ))}
-        </nav>
-      </div>
+                onClick={() => setIsOpen(false)}
+                data-cursor="hover"
+              >
+                <span>{link.name}</span>
+                <span
+                  className={cn(
+                    "absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 origin-right",
+                    activeSection === link.href.substring(1) && "scale-x-100 origin-left",
+                  )}
+                />
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   )
 }

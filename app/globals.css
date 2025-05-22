@@ -158,3 +158,23 @@ html {
 img {
   content-visibility: auto;
 }
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  .section-subtitle {
+    @apply text-xs;
+  }
+}
+
+/* Custom scrollbar styles for better mobile experience */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.6);
+  }
+}
