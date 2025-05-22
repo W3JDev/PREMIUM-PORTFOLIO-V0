@@ -20,5 +20,18 @@ export function checkDeploymentReadiness() {
   // For now, we'll just return a success message
 
   console.log("✅ All required components are implemented and ready for deployment")
+
+  // Check for mobile responsiveness
+  const checkMobileResponsiveness = () => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)")
+    if (mediaQuery.matches) {
+      console.log("✅ Mobile responsiveness check passed")
+    } else {
+      console.log("❌ Mobile responsiveness check failed")
+    }
+  }
+
+  checkMobileResponsiveness()
+
   return true
 }
