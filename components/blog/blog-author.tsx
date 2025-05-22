@@ -19,9 +19,10 @@ export default function BlogAuthor({ author }: BlogAuthorProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className="glass-morph rounded-lg p-6 flex flex-col md:flex-row gap-6 items-center"
+      suppressHydrationWarning
     >
       <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
-        <Image src={author.avatar || "/placeholder.svg"} alt={author.name} fill className="object-cover" />
+        <Image src={author.avatar || "/placeholder.svg"} alt={author.name} fill className="object-cover" suppressHydrationWarning />
       </div>
 
       <div className="text-center md:text-left">

@@ -25,6 +25,7 @@ export default function BlogCard({ title, excerpt, date, readTime, image, catego
       className="glass-morph rounded-lg overflow-hidden group"
       whileHover={{ y: -10 }}
       data-cursor="hover"
+      suppressHydrationWarning
     >
       <div className="relative h-48 overflow-hidden">
         <Image
@@ -33,6 +34,7 @@ export default function BlogCard({ title, excerpt, date, readTime, image, catego
           width={600}
           height={400}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          suppressHydrationWarning
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-70" />
         <div className="absolute top-4 left-4">

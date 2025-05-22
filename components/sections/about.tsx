@@ -35,6 +35,7 @@ export default function About() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="text-center mb-20"
+          suppressHydrationWarning
         >
           <motion.span variants={itemVariants} className="section-subtitle block">
             The Genesis
@@ -53,6 +54,7 @@ export default function About() {
                 width={800}
                 height={1000}
                 className="w-full h-auto object-cover"
+                suppressHydrationWarning
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             </div>

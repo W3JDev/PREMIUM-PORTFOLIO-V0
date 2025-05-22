@@ -10,9 +10,9 @@ interface AnimatedProgressProps {
 }
 
 export default function AnimatedProgress({ label, percentage, color = "hsl(var(--primary))" }: AnimatedProgressProps) {
-  const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, amount: 0.3 })
+  const [isVisible, setIsVisible] = useState(false, { suppressHydrationWarning: true })
+  const ref = useRef(null, { suppressHydrationWarning: true })
+  const inView = useInView(ref, { once: true, amount: 0.3, suppressHydrationWarning: true })
 
   useEffect(() => {
     if (inView) {

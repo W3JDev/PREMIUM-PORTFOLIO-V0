@@ -54,6 +54,7 @@ export default function Contact() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="text-center mb-20"
+          suppressHydrationWarning
         >
           <motion.span variants={itemVariants} className="section-subtitle block">
             Let's Collaborate
@@ -149,6 +150,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.5 }}
             viewport={{ once: true }}
             className="mt-20 text-center"
+            suppressHydrationWarning
           >
             <p className="mb-2 text-muted-foreground">Or connect directly:</p>
             <a

@@ -119,12 +119,12 @@ function ProjectModel({
   image,
   isHovered,
 }: { title: string; category: string; image: string; isHovered: boolean }) {
-  const meshRef = useRef<THREE.Mesh>(null)
-  const [texture, setTexture] = useState<THREE.Texture | null>(null)
-  const [hasError, setHasError] = useState(false)
+  const meshRef = useRef<THREE.Mesh>(null, { suppressHydrationWarning: true })
+  const [texture, setTexture] = useState<THREE.Texture | null>(null, { suppressHydrationWarning: true })
+  const [hasError, setHasError] = useState(false, { suppressHydrationWarning: true })
 
   // Try to load the texture
-  useTexture.preload(image)
+  useTexture.preload(image, { suppressHydrationWarning: true })
   useTexture(
     image,
     (loadedTexture) => {
@@ -138,6 +138,7 @@ function ProjectModel({
       setTexture(createProjectMockup(title, category))
       setHasError(true)
     },
+    { suppressHydrationWarning: true }
   )
 
   useFrame(({ clock }) => {
@@ -182,7 +183,7 @@ function ProjectModel({
 }
 
 export default function ProjectCard3D({ title, category, image, onClick }: ProjectCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false, { suppressHydrationWarning: true })
 
   return (
     <motion.div

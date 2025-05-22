@@ -32,6 +32,7 @@ export default function CareerJourney() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="text-center mb-20"
+          suppressHydrationWarning
         >
           <motion.span variants={itemVariants} className="section-subtitle block">
             Professional Evolution

@@ -28,6 +28,7 @@ export default function BlogCategories() {
             "px-4 py-2 rounded-full text-sm transition-colors relative",
             activeCategory === category.name ? "text-primary-foreground" : "text-muted-foreground hover:text-white",
           )}
+          suppressHydrationWarning
         >
           {activeCategory === category.name && (
             <motion.div
