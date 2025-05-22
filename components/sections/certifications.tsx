@@ -78,6 +78,7 @@ export default function Certifications() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="text-center mb-20"
+          suppressHydrationWarning
         >
           <motion.span variants={itemVariants} className="section-subtitle block">
             Credentials & Expertise

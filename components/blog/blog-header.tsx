@@ -18,6 +18,7 @@ export default function BlogHeader() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+          suppressHydrationWarning
         >
           The Blog
         </motion.h1>
@@ -27,6 +28,7 @@ export default function BlogHeader() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto"
+          suppressHydrationWarning
         >
           Insights at the intersection of F&B operations, technology, and innovation
         </motion.p>

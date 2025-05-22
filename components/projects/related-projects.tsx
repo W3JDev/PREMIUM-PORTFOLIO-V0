@@ -50,6 +50,7 @@ export default function RelatedProjects({ currentSlug }: RelatedProjectsProps) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
+            suppressHydrationWarning
           >
             <Link href={`/projects/${project.slug}`} className="block group">
               <div className="relative h-48 rounded-lg overflow-hidden mb-4">
@@ -58,6 +59,7 @@ export default function RelatedProjects({ currentSlug }: RelatedProjectsProps) {
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  suppressHydrationWarning
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
               </div>

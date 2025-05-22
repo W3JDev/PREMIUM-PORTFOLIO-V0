@@ -43,6 +43,7 @@ export default function BlogSidebar() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="glass-morph rounded-lg p-6"
+        suppressHydrationWarning
       >
         <h3 className="text-xl font-bold text-white mb-4">Newsletter</h3>
         <p className="text-sm text-muted-foreground mb-4">Subscribe to get notified about new articles and insights.</p>
@@ -61,6 +62,7 @@ export default function BlogSidebar() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
         className="glass-morph rounded-lg p-6"
+        suppressHydrationWarning
       >
         <h3 className="text-xl font-bold text-white mb-4">Popular Posts</h3>
         <div className="space-y-4">
@@ -80,6 +82,7 @@ export default function BlogSidebar() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="glass-morph rounded-lg p-6"
+        suppressHydrationWarning
       >
         <h3 className="text-xl font-bold text-white mb-4">Tags</h3>
         <div className="flex flex-wrap gap-2">

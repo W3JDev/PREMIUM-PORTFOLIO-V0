@@ -63,6 +63,7 @@ export default function BlogComments() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            suppressHydrationWarning
           >
             <div className="flex gap-4">
               <Avatar className="h-10 w-10">

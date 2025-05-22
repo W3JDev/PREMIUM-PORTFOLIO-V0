@@ -106,6 +106,7 @@ export default function ProjectsFilter() {
               "px-4 py-2 rounded-full text-sm transition-colors relative",
               activeFilter === cat.value ? "text-primary-foreground" : "text-muted-foreground hover:text-white",
             )}
+            suppressHydrationWarning
           >
             {activeFilter === cat.value && (
               <motion.div

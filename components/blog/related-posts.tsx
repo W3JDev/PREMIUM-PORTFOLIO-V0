@@ -52,6 +52,7 @@ export default function RelatedPosts({ currentSlug }: RelatedPostsProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
+            suppressHydrationWarning
           >
             <Link href={`/blog/${post.slug}`} className="block group">
               <div className="relative h-40 rounded-lg overflow-hidden mb-3">
@@ -60,6 +61,7 @@ export default function RelatedPosts({ currentSlug }: RelatedPostsProps) {
                   alt={post.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  suppressHydrationWarning
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
                 <div className="absolute top-2 left-2">

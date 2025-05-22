@@ -11,16 +11,15 @@ import LoadingScreen from "@/components/loading-screen"
 
 // Dynamically import components with client-side interactivity
 const CursorFollower = dynamic(() => import("@/components/cursor-follower"), {
-  ssr: false,
   loading: () => null,
 })
-const CareerJourney = dynamic(() => import("@/components/sections/career-journey"), { ssr: false })
-const FeaturedProjects = dynamic(() => import("@/components/sections/featured-projects"), { ssr: false })
+const CareerJourney = dynamic(() => import("@/components/sections/career-journey"))
+const FeaturedProjects = dynamic(() => import("@/components/sections/featured-projects"))
 
 export default function Home() {
   return (
     <main className="relative bg-background text-foreground">
-      <Suspense fallback={<LoadingScreen />}>
+      <Suspense fallback={<LoadingScreen />} suppressHydrationWarning>
         <CursorFollower />
         <Hero />
         <About />

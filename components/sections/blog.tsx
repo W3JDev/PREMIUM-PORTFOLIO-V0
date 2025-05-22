@@ -72,6 +72,7 @@ export default function Blog() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="text-center mb-20"
+          suppressHydrationWarning
         >
           <motion.span variants={itemVariants} className="section-subtitle block">
             Insights & Perspectives
@@ -97,6 +98,7 @@ export default function Blog() {
           transition={{ duration: 0.5, delay: 0.5 }}
           viewport={{ once: true }}
           className="text-center mt-16"
+          suppressHydrationWarning
         >
           <Button
             className="bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
