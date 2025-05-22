@@ -17,3 +17,35 @@ export function useIsMobile() {
 
   return !!isMobile
 }
+
+export function useIsTablet() {
+  const [isTablet, setIsTablet] = React.useState<boolean | undefined>(undefined)
+
+  React.useEffect(() => {
+    const mql = window.matchMedia(`(min-width: ${MOBILE_BREAKPOINT}px) and (max-width: 1024px)`)
+    const onChange = () => {
+      setIsTablet(mql.matches)
+    }
+    mql.addEventListener("change", onChange)
+    setIsTablet(mql.matches)
+    return () => mql.removeEventListener("change", onChange)
+  }, [])
+
+  return !!isTablet
+}
+
+export function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = React.useState<boolean | undefined>(undefined)
+
+  React.useEffect(() => {
+    const mql = window.matchMedia(`(min-width: 1025px)`)
+    const onChange = () => {
+      setIsDesktop(mql.matches)
+    }
+    mql.addEventListener("change", onChange)
+    setIsDesktop(mql.matches)
+    return () => mql.removeEventListener("change", onChange)
+  }, [])
+
+  return !!isDesktop
+}

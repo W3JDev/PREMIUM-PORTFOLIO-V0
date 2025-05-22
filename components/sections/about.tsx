@@ -23,7 +23,9 @@ export default function About() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    visible: {
+      opacity: 1, y: 0, transition: { duration: 0.8 },
+    },
   }
 
   return (
