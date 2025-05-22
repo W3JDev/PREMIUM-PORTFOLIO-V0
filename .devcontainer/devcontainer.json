@@ -10,6 +10,7 @@
       "label": "Push Diffs to Codespace",
       "type": "shell",
       "command": "git add . && git commit -m 'Sync diffs' && git push origin main"
-    }
+    },
+    "test": "echo \"No test script found in package.json\""
   }
 }
